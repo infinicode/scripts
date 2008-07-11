@@ -21,6 +21,28 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 If you find any bugs or have any suggestions email: code@infinicode.org
 """
 
+"""
+nscan.py is a prettifier for the linux 'iwlist scan' command
+You will get something like:
+
+infinito@laptop:~$ sudo nscan.py 
+MAC                  	ESSID      	Channel    	Encryption 	Quality   
+-------------------- 	---------- 	---------- 	---------- 	----------
+00:23:J5:B8:A2:C0    	Truman    	11         	WPA2       	70/100    
+00:21:3F:FF:CC:AA    	WLAN_02    	6          	WEP        	64/100    
+00:A9:AD:02:AA:BB    	Wireless   	6          	Open       	27/100
+
+
+infinito@laptop:~$ nscan.py -h
+Usage: nscan.py [-i interface] [-c scan_count] [-s sleep_time]
+Options:
+	-i, --interface		Network interface to scan (default: wlan0)
+						Use 'help' for displaying available interfaces
+						Use 'all' for scanning all available interfaces
+	-c, --count			Number of times to repeat the scanning (default: 1)
+	-s, --sleep			Seconds to sleep between scannings (default: 0)
+"""
+
 import os
 import sys
 import time
