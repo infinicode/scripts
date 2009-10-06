@@ -22,10 +22,10 @@ If you find any bugs or have any suggestions email: code@infinicode.org
 """
 
 """
-nscan.py is a prettifier for the linux 'iwlist scan' command
+wifi-scanner is a prettifier for the linux 'iwlist scan' command
 You will get something like:
 
-infinito@laptop:~$ sudo nscan.py 
+infinito@laptop:~$ sudo wifi-scanner 
 MAC                  	ESSID      	Channel    	Encryption 	Quality   
 -------------------- 	---------- 	---------- 	---------- 	----------
 00:23:J5:B8:A2:C0    	Truman    	11         	WPA2       	70/100    
@@ -33,8 +33,8 @@ MAC                  	ESSID      	Channel    	Encryption 	Quality
 00:A9:AD:02:AA:BB    	Wireless   	6          	Open       	27/100
 
 
-infinito@laptop:~$ nscan.py -h
-Usage: nscan.py [-i interface] [-c scan_count] [-s sleep_time]
+infinito@laptop:~$ wifi-scanner -h
+Usage: wifi-scanner [-i interface] [-c scan_count] [-s sleep_time]
 Options:
 	-i, --interface		Network interface to scan (default: wlan0)
 						Use 'help' for displaying available interfaces
@@ -159,20 +159,20 @@ def print_networks(networks):
 		sys.exit(0)
 	
 	print "MAC".ljust(20), '\t',
-	print "ESSID".ljust(10), '\t', 
+	print "ESSID".ljust(20), '\t', 
 	print "Channel".ljust(10), '\t',
 	print "Encryption".ljust(10), '\t',
 	print "Quality".ljust(10)
 	
 	print ''.ljust(20, '-'), '\t',
-	print ''.ljust(10, '-'), '\t',
+	print ''.ljust(20, '-'), '\t',
 	print ''.ljust(10, '-'), '\t',
 	print ''.ljust(10, '-'), '\t',
 	print ''.ljust(10, '-')
 	
 	for net in networks:
 		print net["mac"].ljust(20), '\t', 
-		print net["essid"].ljust(10), '\t', 
+		print net["essid"].ljust(20), '\t', 
 		print net["channel"].ljust(10), '\t',
 		print net["enctype"].ljust(10), '\t',
 		print net["quality"].ljust(10)
